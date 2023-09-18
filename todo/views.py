@@ -27,7 +27,8 @@ def create(request):
         Todo.objects.create(
             content=request.POST["content"],
             user=request.user,
-            image=request.FILES.get("image"))
+            image=request.FILES.get("image"),
+        )
         return redirect("/todo/")
     elif request.method == "GET":
         return render(request, "todo/create.html")
